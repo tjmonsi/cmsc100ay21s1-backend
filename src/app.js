@@ -1,20 +1,36 @@
 // Require the framework and instantiate it
 import fastify from 'fastify';
-import { home } from './services/base/home.js';
-import { test } from './services/base/test.js';
+import openApiGlue from 'fastify-openapi-glue';
+import swagger from 'fastify-swagger';
+import { Service } from './services/index.js';
+import { specification } from './specifications/index.js';
 
 /**
  * This function starts the server
- * 
- * @param {*} options 
+ *
+ * @param {*} options
  * @returns {*}
  */
 export async function server (options = { logger: true }) {
   const app = fastify(options);
 
-  app.get('/', home);
-  app.post('/', home);
-  app.get('/test', test);
+  const service = new Service();
+
+  const openApiOptions = {
+    specification,
+    service,
+    noAdditional: true
+  };
+
+  const swaggerOptions = {
+    // @ts-ignore
+    openapi: specification,
+    routePrefix: '/docs',
+    exposeRoute: process.env.NODE_ENV !== 'production'
+  };
+
+  app.register(swagger, swaggerOptions);
+  app.register(openApiGlue, openApiOptions);
 
   return app;
 }
