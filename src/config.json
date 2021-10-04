@@ -1,0 +1,6 @@
+{
+  "mongodb": {
+    "host": "tj-cluster.cccsg.mongodb.net",
+    "database": "cmsc100Db"
+  }
+}
