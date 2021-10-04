@@ -2,6 +2,7 @@
 import fastify from 'fastify';
 import openApiGlue from 'fastify-openapi-glue';
 import swagger from 'fastify-swagger';
+import sensible from 'fastify-sensible';
 import { Service } from './services/index.js';
 import { specification } from './specifications/index.js';
 import { connect } from './utils/mongodb/index.js';
@@ -14,6 +15,8 @@ import { connect } from './utils/mongodb/index.js';
  */
 export async function server (options = { logger: true }) {
   const app = fastify(options);
+
+  app.register(sensible);
 
   await connect();
 

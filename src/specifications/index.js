@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import { paths } from './paths/index.js';
 
 const {
   name: title,
@@ -40,37 +41,13 @@ export const specification = {
     {
       name: 'Base',
       description: 'Base url paths'
+    },
+    {
+      name: 'Blog',
+      description: 'Blog url paths'
     }
   ],
-  paths: {
-    '/': {
-      get: {
-        description: 'Returns home funciton',
-        operationId: 'home',
-        tags: [
-          'Base'
-        ],
-        responses: {
-          200: {
-            description: 'returns hello world',
-            content: {
-              'application/json': {
-                schema: {
-                  type: 'object',
-                  properties: {
-                    hello: {
-                      type: 'string',
-                      example: 'world'
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
+  paths,
   externalDocs: {
     description: 'Find out more about Open API Spec',
     url: 'https://spec.openapis.org/oas/v3.1.0#schema'
