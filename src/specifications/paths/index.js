@@ -6,4 +6,9 @@ export const paths = {
   '/': root,
   '/blog': blog,
   '/blog/:id': blogId
+  // TODO: Create a TODO CRUD
+  /**
+   * '/todo' - GET, POST
+   * '/todo/:id' - GET, PUT, UPDATE
+   */
 };

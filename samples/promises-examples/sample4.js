@@ -28,4 +28,7 @@ async function start () {
   console.log('end');
 }
 
+
+
 start();
+console.log('true end')

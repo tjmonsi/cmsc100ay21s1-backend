@@ -7,7 +7,7 @@ const start = async () => {
     app = await server({ logger: true });
     await app.listen(8080);
   } catch (err) {
-    app.log.error(err);
+    console.error(err);
     process.exit(1);
   }
 };

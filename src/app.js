@@ -38,5 +38,10 @@ export async function server (options = { logger: true }) {
   app.register(swagger, swaggerOptions);
   app.register(openApiGlue, openApiOptions);
 
+  /**
+   * app.get('/blog', service.getManyBlog)
+   * app.get('/blog/:id', service.getBlog)
+   */
+
   return app;
 }
