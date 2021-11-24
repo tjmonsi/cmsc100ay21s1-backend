@@ -10,7 +10,7 @@ export async function getBlog (request, response) {
 
   const { Blog } = models;
 
-  const blog = await Blog.findOne({ _id });
+  const blog = await Blog.findOne({ _id }).exec();
 
   if (!blog) {
     return response.notFound('No Blog found');

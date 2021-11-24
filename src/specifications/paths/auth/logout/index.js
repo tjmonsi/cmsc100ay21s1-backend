@@ -1,29 +1,19 @@
-export const del = {
-  description: 'Delete a blog post',
-  operationId: 'deleteBlog',
+export const get = {
+  description: 'Logout using get method',
+  operationId: 'logout',
   tags: [
-    'Blog'
-  ],
-  parameters: [
-    {
-      name: 'id',
-      in: 'path',
-      schema: {
-        type: 'string'
-      },
-      required: true
-    }
+    'Auth'
   ],
   responses: {
     200: {
-      description: 'Delete a blog post',
+      description: 'Successful logout',
       content: {
         'application/json': {
           schema: {
             type: 'object',
             properties: {
               success: {
-                type: 'boolean'
+                type: 'string'
               }
             }
           }

@@ -1,8 +1,8 @@
 export const post = {
-  description: 'Create a blog post',
-  operationId: 'createBlog',
+  description: 'Create a user',
+  operationId: 'createUser',
   tags: [
-    'Blog'
+    'User'
   ],
   requestBody: {
     content: {
@@ -10,10 +10,10 @@ export const post = {
         schema: {
           type: 'object',
           properties: {
-            title: {
+            username: {
               type: 'string'
             },
-            text: {
+            password: {
               type: 'string'
             }
           }
@@ -23,7 +23,7 @@ export const post = {
   },
   responses: {
     200: {
-      description: 'Creates a blog post and return the blog data',
+      description: 'Creates a user and return user data',
       content: {
         'application/json': {
           schema: {
@@ -32,20 +32,8 @@ export const post = {
               _id: {
                 type: 'string'
               },
-              title: {
-                type: 'string'
-              },
-              text: {
-                type: 'string'
-              },
               username: {
                 type: 'string'
-              },
-              createDate: {
-                type: 'number'
-              },
-              updateDate: {
-                type: 'number'
               }
             }
           }
@@ -54,11 +42,6 @@ export const post = {
     }
   },
   security: [
-    {
-      cookieAuth: []
-    },
-    {
-      bearerAuth: []
-    }
+    {}
   ]
 };

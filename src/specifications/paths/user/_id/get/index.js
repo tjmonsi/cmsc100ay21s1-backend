@@ -1,6 +1,6 @@
-export const del = {
-  description: 'Delete a blog post',
-  operationId: 'deleteBlog',
+export const get = {
+  description: 'Get a User',
+  operationId: 'getUser',
   tags: [
     'Blog'
   ],
@@ -16,14 +16,17 @@ export const del = {
   ],
   responses: {
     200: {
-      description: 'Delete a blog post',
+      description: 'Get a User and return the user data',
       content: {
         'application/json': {
           schema: {
             type: 'object',
             properties: {
-              success: {
-                type: 'boolean'
+              _id: {
+                type: 'string'
+              },
+              username: {
+                type: 'string'
               }
             }
           }

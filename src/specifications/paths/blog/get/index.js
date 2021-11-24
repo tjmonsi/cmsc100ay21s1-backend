@@ -31,6 +31,15 @@ export const get = {
                 },
                 text: {
                   type: 'string'
+                },
+                username: {
+                  type: 'string'
+                },
+                createDate: {
+                  type: 'number'
+                },
+                updateDate: {
+                  type: 'number'
                 }
               }
             }
@@ -38,5 +47,8 @@ export const get = {
         }
       }
     }
-  }
+  },
+  security: [
+    {}
+  ]
 };

@@ -1,8 +1,8 @@
 export const post = {
-  description: 'Create a blog post',
-  operationId: 'createBlog',
+  description: 'Login using post method',
+  operationId: 'login',
   tags: [
-    'Blog'
+    'Auth'
   ],
   requestBody: {
     content: {
@@ -10,10 +10,10 @@ export const post = {
         schema: {
           type: 'object',
           properties: {
-            title: {
+            username: {
               type: 'string'
             },
-            text: {
+            password: {
               type: 'string'
             }
           }
@@ -23,29 +23,17 @@ export const post = {
   },
   responses: {
     200: {
-      description: 'Creates a blog post and return the blog data',
+      description: 'Successful login',
       content: {
         'application/json': {
           schema: {
             type: 'object',
             properties: {
-              _id: {
+              success: {
                 type: 'string'
               },
-              title: {
+              token: {
                 type: 'string'
-              },
-              text: {
-                type: 'string'
-              },
-              username: {
-                type: 'string'
-              },
-              createDate: {
-                type: 'number'
-              },
-              updateDate: {
-                type: 'number'
               }
             }
           }
@@ -54,11 +42,6 @@ export const post = {
     }
   },
   security: [
-    {
-      cookieAuth: []
-    },
-    {
-      bearerAuth: []
-    }
+    {}
   ]
 };

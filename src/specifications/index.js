@@ -52,6 +52,30 @@ export const specification = {
     description: 'Find out more about Open API Spec',
     url: 'https://spec.openapis.org/oas/v3.1.0#schema'
   },
-  components: {},
-  security: []
+  components: {
+    // add security scheme
+    securitySchemes: {
+      cookieAuth: {
+        type: 'apiKey',
+        in: 'cookie',
+        name: 'sessionToken'
+      },
+      bearerAuth: {
+        type: 'http',
+        description: 'Simple bearer auth',
+        scheme: 'bearer',
+        bearerFormat: 'JWT'
+      }
+    }
+  },
+  // add security
+  security: [
+    {},
+    {
+      cookieAuth: []
+    },
+    {
+      bearerAuth: []
+    }
+  ]
 };

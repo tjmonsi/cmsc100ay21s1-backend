@@ -1,8 +1,8 @@
 export const put = {
-  description: 'Update a blog post',
-  operationId: 'updateBlog',
+  description: 'Update a user',
+  operationId: 'updateUser',
   tags: [
-    'Blog'
+    'User'
   ],
   parameters: [
     {
@@ -20,10 +20,10 @@ export const put = {
         schema: {
           type: 'object',
           properties: {
-            title: {
+            password: {
               type: 'string'
             },
-            text: {
+            newPassword: {
               type: 'string'
             }
           }
@@ -33,29 +33,14 @@ export const put = {
   },
   responses: {
     200: {
-      description: 'Update a blog post and return the blog data',
+      description: 'Update a user and return user data',
       content: {
         'application/json': {
           schema: {
             type: 'object',
             properties: {
-              _id: {
-                type: 'string'
-              },
-              title: {
-                type: 'string'
-              },
-              text: {
-                type: 'string'
-              },
-              username: {
-                type: 'string'
-              },
-              createDate: {
-                type: 'number'
-              },
-              updateDate: {
-                type: 'number'
+              success: {
+                type: 'boolean'
               }
             }
           }

@@ -5,12 +5,13 @@ import { models } from '../../utils/mongodb/index.js';
  *
  */
 export async function deleteBlog (request) {
-  const { params } = request;
+  const { params, user } = request;
+  const { username } = user;
   const { id: _id } = params;
 
   const { Blog } = models;
 
-  await Blog.deleteOne({ _id });
+  await Blog.deleteOne({ _id, username });
 
   return {
     success: true

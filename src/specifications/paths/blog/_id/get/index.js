@@ -30,6 +30,9 @@ export const get = {
               },
               text: {
                 type: 'string'
+              },
+              username: {
+                type: 'string'
               }
             }
           }
@@ -51,11 +54,20 @@ export const get = {
               },
               message: {
                 type: 'string'
+              },
+              createDate: {
+                type: 'number'
+              },
+              updateDate: {
+                type: 'number'
               }
             }
           }
         }
       }
     }
-  }
+  },
+  security: [
+    {}
+  ]
 };

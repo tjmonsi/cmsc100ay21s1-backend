@@ -8,13 +8,14 @@ import { models } from '../../utils/mongodb/index.js';
  * @returns {*}
  */
 export async function updateBlog (request, reply) {
-  const { body, params } = request;
+  const { body, params, user } = request;
+  const { username } = user;
   const { title, text } = body;
   const { id: _id } = params;
 
   const { Blog } = models;
 
-  const blog = await Blog.findOneAndUpdate({ _id }, {
+  const blog = await Blog.findOneAndUpdate({ _id, username }, {
     title,
     text
   });
@@ -26,6 +27,7 @@ export async function updateBlog (request, reply) {
   return {
     _id,
     title,
-    text
+    text,
+    username
   };
 }
