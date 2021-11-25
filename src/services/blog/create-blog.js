@@ -20,11 +20,5 @@ export async function createBlog (request, reply) {
 
   await blog.save();
 
-  const { _id } = blog;
-
-  return {
-    _id,
-    title,
-    text
-  };
+  return blog;
 }

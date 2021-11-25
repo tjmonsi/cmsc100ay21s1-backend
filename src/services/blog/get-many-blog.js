@@ -12,7 +12,8 @@ export async function getManyBlog (request) {
 
   const blogs = await Blog
     .find({})
-    .limit(limit);
+    .limit(limit)
+    .sort([['createDate', -1]]);
 
   return blogs;
 }

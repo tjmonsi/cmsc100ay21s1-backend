@@ -37,18 +37,7 @@ export const put = {
       content: {
         'application/json': {
           schema: {
-            type: 'object',
-            properties: {
-              _id: {
-                type: 'string'
-              },
-              title: {
-                type: 'string'
-              },
-              text: {
-                type: 'string'
-              }
-            }
+            $ref: '#/components/schemas/BlogData'
           }
         }
       }

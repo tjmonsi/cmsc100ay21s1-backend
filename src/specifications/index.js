@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import { paths } from './paths/index.js';
+import { components } from './components/index.js';
 
 const {
   name: title,
@@ -52,6 +53,6 @@ export const specification = {
     description: 'Find out more about Open API Spec',
     url: 'https://spec.openapis.org/oas/v3.1.0#schema'
   },
-  components: {},
+  components,
   security: []
 };

@@ -21,18 +21,7 @@ export const get = {
           schema: {
             type: 'array',
             items: {
-              type: 'object',
-              properties: {
-                _id: {
-                  type: 'string'
-                },
-                title: {
-                  type: 'string'
-                },
-                text: {
-                  type: 'string'
-                }
-              }
+              $ref: '#/components/schemas/BlogData'
             }
           }
         }
