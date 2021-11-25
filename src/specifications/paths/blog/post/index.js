@@ -32,5 +32,13 @@ export const post = {
         }
       }
     }
-  }
+  },
+  security: [
+    {
+      cookieAuth: []
+    },
+    {
+      bearerAuth: []
+    }
+  ]
 };

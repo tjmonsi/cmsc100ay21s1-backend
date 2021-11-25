@@ -46,5 +46,8 @@ export const get = {
         }
       }
     }
-  }
+  },
+  security: [
+    {}
+  ]
 };

@@ -42,5 +42,13 @@ export const put = {
         }
       }
     }
-  }
+  },
+  security: [
+    {
+      cookieAuth: []
+    },
+    {
+      bearerAuth: []
+    }
+  ]
 };

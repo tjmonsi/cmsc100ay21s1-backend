@@ -8,6 +8,10 @@ export const createBlogModel = (mongoose) => {
       type: String,
       required: true
     },
+    username: {
+      type: String,
+      required: true
+    },
     createDate: {
       type: Number
     },

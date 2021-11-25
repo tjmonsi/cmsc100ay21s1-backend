@@ -30,5 +30,13 @@ export const del = {
         }
       }
     }
-  }
+  },
+  security: [
+    {
+      cookieAuth: []
+    },
+    {
+      bearerAuth: []
+    }
+  ]
 };

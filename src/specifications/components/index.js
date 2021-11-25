@@ -25,6 +25,9 @@ export const components = {
         text: {
           type: 'string'
         },
+        username: {
+          type: 'string'
+        },
         createDate: {
           type: 'number'
         },

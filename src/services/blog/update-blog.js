@@ -8,24 +8,23 @@ import { models } from '../../utils/mongodb/index.js';
  * @returns {*}
  */
 export async function updateBlog (request, reply) {
-  const { body, params } = request;
+  const { body, params, user } = request;
   const { title, text } = body;
   const { id: _id } = params;
+  const { username } = user;
 
   const { Blog } = models;
 
-  const blog = await Blog.findOneAndUpdate({ _id }, {
+  const blog = await Blog.findOneAndUpdate({ _id, username }, {
     title,
     text
+  }, {
+    new: true
   });
 
   if (!blog) {
     return reply.notFound();
   }
 
-  return {
-    _id,
-    title,
-    text
-  };
+  return blog;
 }
