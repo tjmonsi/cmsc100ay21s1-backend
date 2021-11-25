@@ -4,6 +4,7 @@ import { getBlog } from './blog/get-blog.js';
 import { getManyBlog } from './blog/get-many-blog.js';
 import { updateBlog } from './blog/update-blog.js';
 import { deleteBlog } from './blog/delete-blog.js';
+import { createUser } from './user/create-blog.js';
 
 export class Service {
   home = home
@@ -12,4 +13,6 @@ export class Service {
   getBlog = getBlog
   updateBlog = updateBlog
   deleteBlog = deleteBlog
+
+  createUser = createUser
 }
