@@ -54,5 +54,13 @@ export const specification = {
     url: 'https://spec.openapis.org/oas/v3.1.0#schema'
   },
   components,
-  security: []
+  security: [
+    {},
+    {
+      bearerAuth: []
+    },
+    {
+      cookieAuth: []
+    }
+  ]
 };

@@ -22,8 +22,11 @@
     "ajv": "^8.6.3",
     "bcrypt": "^5.0.1",
     "fastify": "^3.21.3",
+    "fastify-cookie": "^5.4.0",
+    "fastify-jwt": "^3.2.1",
     "fastify-openapi-glue": "^2.6.5",
     "fastify-sensible": "^3.1.1",
+    "fastify-session": "^5.2.1",
     "fastify-swagger": "^4.12.0",
     "mongoose": "^6.0.8"
   },
