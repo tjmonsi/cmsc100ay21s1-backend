@@ -5,8 +5,10 @@ import { getManyBlog } from './blog/get-many-blog.js';
 import { updateBlog } from './blog/update-blog.js';
 import { deleteBlog } from './blog/delete-blog.js';
 import { createUser } from './user/create-blog.js';
-import { login } from './auth/login.js'
-import { logout } from './auth/logout.js'
+import { login } from './auth/login.js';
+import { logout } from './auth/logout.js';
+import { getCsrf } from './auth/get-csrf.js';
+import { checkAuth } from './auth/check-auth.js';
 
 export class Service {
   constructor (app) {
@@ -24,4 +26,6 @@ export class Service {
 
   login = login
   logout = logout
+  getCsrf = getCsrf
+  checkAuth = checkAuth
 }

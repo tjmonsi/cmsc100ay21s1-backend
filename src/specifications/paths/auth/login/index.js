@@ -34,6 +34,9 @@ export const post = {
               },
               token: {
                 type: 'string'
+              },
+              username: {
+                type: 'string'
               }
             }
           }
@@ -42,6 +45,8 @@ export const post = {
     }
   },
   security: [
-    {}
+    {
+      csrfAuth: []
+    }
   ]
 };

@@ -37,6 +37,14 @@ async function auth (request, reply, app) {
       return reply.unauthorized('auth/discarded');
     }
 
+    // when using cookie that needs to check Csrf
+    if (sessionToken) {
+      const csrfProtection = () => new Promise((resolve) => {
+        app.csrfProtection(request, reply, resolve);
+      });
+      await csrfProtection();
+    }
+
     const user = await User.findOne({ username }).exec();
 
     if (!user) {
@@ -67,6 +75,7 @@ export class Security {
   * @param {*} response
   */
   async cookieAuth (request, response) {
+    console.log('cookie');
     await auth(request, response, this.app);
   }
 
@@ -76,5 +85,12 @@ export class Security {
   */
   async bearerAuth (request, response) {
     await auth(request, response, this.app);
+  }
+
+  async csrfAuth (request, response) {
+    const csrfProtection = () => new Promise((resolve) => {
+      this.app.csrfProtection(request, response, resolve);
+    });
+    await csrfProtection();
   }
 }

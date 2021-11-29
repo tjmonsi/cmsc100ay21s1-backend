@@ -10,6 +10,11 @@ export const components = {
       description: 'Simple bearer auth using JWT',
       scheme: 'bearer',
       bearerFormat: 'JWT'
+    },
+    csrfAuth: {
+      type: 'apiKey',
+      in: 'header',
+      name: 'x-csrf-token'
     }
   },
   schemas: {

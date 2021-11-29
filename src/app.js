@@ -1,8 +1,10 @@
 // Require the framework and instantiate it
 import fastify from 'fastify';
+import stat from 'fastify-static';
 import jwt from 'fastify-jwt';
 import cookie from 'fastify-cookie';
 import session from 'fastify-session';
+import csrf from 'fastify-csrf';
 import openApiGlue from 'fastify-openapi-glue';
 import swagger from 'fastify-swagger';
 import sensible from 'fastify-sensible';
@@ -11,6 +13,8 @@ import { Security } from './security/index.js';
 import { specification } from './specifications/index.js';
 import { connect } from './utils/mongodb/index.js';
 import { readFileSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const audience = 'this-audience';
 const issuer = 'localhost';
@@ -25,6 +29,15 @@ export async function server (options = { logger: true }) {
   const app = fastify(options);
 
   app.register(sensible);
+
+  app.register(stat, {
+    root: join(dirname(fileURLToPath(import.meta.url)), './public'),
+    preCompressed: true
+  });
+
+  app.setNotFoundHandler((_req, res) => {
+    return res.sendFile('index.html');
+  });
 
   app.register(jwt, {
     secret: {
@@ -53,6 +66,7 @@ export async function server (options = { logger: true }) {
     },
     maxAge: 60 * 60
   });
+  app.register(csrf, { sessionPlugin: 'fastify-session' });
 
   await connect();
 

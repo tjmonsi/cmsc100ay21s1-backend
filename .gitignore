@@ -106,3 +106,5 @@ dist
 config
 
 cert
+
+src/public/*.js

@@ -61,6 +61,9 @@ export const specification = {
     },
     {
       cookieAuth: []
+    },
+    {
+      csrfAuth: []
     }
   ]
 };
