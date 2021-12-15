@@ -7,6 +7,7 @@ import { deleteBlog } from './blog/delete-blog.js';
 import { createUser } from './user/create-blog.js';
 import { login } from './auth/login.js'
 import { logout } from './auth/logout.js'
+import { checkAuth } from './auth/check-auth.js';
 
 export class Service {
   constructor (app) {
@@ -24,4 +25,5 @@ export class Service {
 
   login = login
   logout = logout
+  checkAuth = checkAuth
 }

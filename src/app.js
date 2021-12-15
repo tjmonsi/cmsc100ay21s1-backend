@@ -1,5 +1,6 @@
 // Require the framework and instantiate it
 import fastify from 'fastify';
+import stat from 'fastify-static';
 import jwt from 'fastify-jwt';
 import cookie from 'fastify-cookie';
 import session from 'fastify-session';
@@ -10,6 +11,8 @@ import { Service } from './services/index.js';
 import { Security } from './security/index.js';
 import { specification } from './specifications/index.js';
 import { connect } from './utils/mongodb/index.js';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { readFileSync } from 'fs';
 
 const audience = 'this-audience';
@@ -25,6 +28,13 @@ export async function server (options = { logger: true }) {
   const app = fastify(options);
 
   app.register(sensible);
+
+  app.register(stat, {
+    root: join(dirname(fileURLToPath(import.meta.url)), './public'),
+    preCompressed: true
+  });
+
+  app.setNotFoundHandler((_req, res) => res.sendFile('index.html'));
 
   app.register(jwt, {
     secret: {
@@ -75,11 +85,6 @@ export async function server (options = { logger: true }) {
 
   app.register(swagger, swaggerOptions);
   app.register(openApiGlue, openApiOptions);
-
-  /**
-   * app.get('/blog', service.getManyBlog)
-   * app.get('/blog/:id', service.getBlog)
-   */
 
   return app;
 }

@@ -34,6 +34,9 @@ export const post = {
               },
               token: {
                 type: 'string'
+              },
+              username: {
+                type: 'string'
               }
             }
           }

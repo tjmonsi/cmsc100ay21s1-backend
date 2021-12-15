@@ -32,6 +32,7 @@ export async function login (request, reply) {
 
   return {
     success: true,
-    token
+    token,
+    username
   };
 }
