@@ -19,6 +19,14 @@ if (el) {
       render: () => html`<blog-page></blog-page>`,
       preRender: async () => import('./pages/blog/index.js')
     },
+    '/login': {
+      render: () => html`<login-page></login-page>`,
+      preRender: () => import('./pages/login/index.js')
+    },
+    '/logout': {
+      render: () => html`<logout-page></logout-page>`,
+      preRender: () => import('./pages/logout/index.js')
+    },
     '/edit-blog/:blogId': {
       render: () => html`<edit-blog-page></edit-blog-page>`,
       preRender: [
@@ -46,14 +54,6 @@ if (el) {
         },
         async () => import('./pages/edit-blog/index.js')
       ]
-    },
-    '/login': {
-      render: () => html`<login-page></login-page>`,
-      preRender: () => import('./pages/login/index.js')
-    },
-    '/logout': {
-      render: () => html`<logout-page></logout-page>`,
-      preRender: () => import('./pages/logout/index.js')
     }
   }
 }

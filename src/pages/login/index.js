@@ -24,12 +24,6 @@ export class Page extends LitElement {
     if (result.status === 200) {
       const { success, token, username } = await result.json();
       if (success) {
-        // we do something
-        // this is a good hack, but not good enough
-        // const webHeader = document.querySelector('web-header');
-        // webHeader.isLoggedIn = true;
-
-        // this is much better
         await state.set('token', token);
         await state.set('username', username);
 
